@@ -1,0 +1,15 @@
+.email input{
+    border: #D1D9CF 2px solid;
+    color: #D1D9CF;
+}
+
+.email :focus-visible{
+    border: #D1D9CF 2px solid;
+}
+.email :focus{
+    border: #D1D9CF 2px solid;
+}
+
+.email :focus-within{
+    border: #D1D9CF 2px solid;
+}
