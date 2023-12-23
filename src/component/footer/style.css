@@ -1,15 +1,17 @@
 .email input{
-    border: #D1D9CF 2px solid;
+    border: #D1D9CF 1px solid;
+    color: #D1D9CF;
+    width: 30rem;
+    height: 1.8rem;
+    padding-left: 10px;
+}
+.email ::placeholder{
+    font-size: 15px;
+    color: #D1D9CF;
+}
+.icon{
+    margin-left: -35px;
+    margin-top: 10px;
     color: #D1D9CF;
 }
 
-.email :focus-visible{
-    border: #D1D9CF 2px solid;
-}
-.email :focus{
-    border: #D1D9CF 2px solid;
-}
-
-.email :focus-within{
-    border: #D1D9CF 2px solid;
-}

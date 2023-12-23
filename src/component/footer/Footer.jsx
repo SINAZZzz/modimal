@@ -1,7 +1,10 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import TextField from "@mui/material/TextField";
+import InputBase from "@mui/material/InputBase";
 import "./style.css";
+
+// icons
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 // import FooterItems from "./component/FooterItems";
 // import { footerItems1, footerItems2, footerItems3 } from "./data";
@@ -17,7 +20,14 @@ export default function Footer() {
         <Typography variant="h6">
           Join our club, get 15% off for your Birthday
         </Typography>
-        <TextField placeholder="Enter Your Email Address" className="email" />
+        <Box display="flex">
+          <InputBase
+            placeholder="Enter Your Email Address"
+            type="email"
+            className="email"
+          />
+          <ArrowForwardIcon className="icon" fontSize="small" />
+        </Box>
       </Box>
       {/* <Box sx={{ background: "#404040", color: "white" }} display="flex">
         <FooterItems Items={footerItems1} title={"About Modimal"} />
