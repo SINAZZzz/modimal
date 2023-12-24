@@ -81,7 +81,7 @@ function Header() {
             </Box>
           </Grid>
           <Grid item xs={3}>
-            <Box display="flex" justifyContent='flex-end' p={1}>
+            <Box display="flex" justifyContent="flex-end" p={1}>
               {navIcons.map((item) => (
                 <Typography
                   key={item}
