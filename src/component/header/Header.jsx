@@ -7,6 +7,9 @@ import Grid from "@mui/material/Grid";
 import { styled } from "@mui/material/styles";
 import useWindowSize from "../../Util/Utility";
 import IconButton from "@mui/material/IconButton";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 // icons
 import SearchIcon from "@mui/icons-material/Search";
@@ -43,7 +46,14 @@ const navItems = [
 
 function Header() {
   const { width } = useWindowSize();
-  const [openedMenu , setOpenedMenu] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Box>
@@ -62,9 +72,33 @@ function Header() {
       {width < 900 ? (
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Box display="flex" alignItems="center">
-            <IconButton onClick={()=> setOpenedMenu(!openedMenu)}>
-              <MenuOutlinedIcon sx={{ marginRight: "5px" }} />
+            <IconButton
+              aria-label="more"
+              id="long-button"
+              aria-controls={open ? "long-menu" : undefined}
+              aria-expanded={open ? "true" : undefined}
+              aria-haspopup="true"
+              onClick={handleClick}
+            >
+              <MenuOutlinedIcon />
             </IconButton>
+            <Menu
+              id="long-menu"
+              MenuListProps={{
+                'aria-labelledby': 'long-button',
+              }}
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              PaperProps={{
+                style :{
+                  width : '100%',
+                  borderRadius :'5px'
+                }
+              }}
+            >
+              <MenuItem>A</MenuItem>
+            </Menu>
             <IconButton>
               <SearchOutlinedIcon />
             </IconButton>
