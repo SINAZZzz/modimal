@@ -217,6 +217,7 @@ const Product = [
     price: "$180",
     type: "turn it up pants",
     color: ["black", "green", "blue"],
+    picture: "",
   },
   {
     name: "Technical Silk",
@@ -224,5 +225,6 @@ const Product = [
     price: "$120",
     type: "Make A Splash",
     color: ["black", "yellow", "blue"],
+    picture: "",
   },
 ];
