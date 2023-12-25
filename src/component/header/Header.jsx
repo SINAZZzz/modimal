@@ -1,13 +1,9 @@
 //  MUI
-import * as React from "react";
 import { useState } from "react";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-import { styled } from "@mui/material/styles";
 import useWindowSize from "../../Util/Utility";
-import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
@@ -18,6 +14,7 @@ import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlin
 import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import IconButton from "@mui/material/IconButton";
 
 // logo
 import { logo } from "../../assets/images";
@@ -85,16 +82,16 @@ function Header() {
             <Menu
               id="long-menu"
               MenuListProps={{
-                'aria-labelledby': 'long-button',
+                "aria-labelledby": "long-button",
               }}
               anchorEl={anchorEl}
               open={open}
               onClose={handleClose}
               PaperProps={{
-                style :{
-                  width : '100%',
-                  borderRadius :'5px'
-                }
+                style: {
+                  width: "100%",
+                  borderRadius: "5px",
+                },
               }}
             >
               <MenuItem>A</MenuItem>
@@ -160,28 +157,8 @@ function Header() {
               </Box>
             </Grid>
           </Grid>
-<<<<<<< HEAD
-          <Grid item xs={3}>
-            <Box display="flex" justifyContent="flex-end" p={1}>
-              {navIcons.map((item) => (
-                <Typography
-                  key={item}
-                  sx={{
-                    color: "#000",
-                    paddingLeft: "2rem",
-                  }}
-                >
-                  {item.icon}
-                </Typography>
-              ))}
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
-=======
         </Box>
       )}
->>>>>>> 83567cac6937f7df9acd7222e91fc612085efcc3
     </Box>
   );
 }
