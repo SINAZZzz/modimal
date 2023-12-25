@@ -209,3 +209,20 @@ const Sustainability = [
     id: 5,
   },
 ];
+
+const Product = [
+  {
+    name: "tailored stretch",
+    id: 0,
+    price: "$180",
+    type: "turn it up pants",
+    color: ["black", "green", "blue"],
+  },
+  {
+    name: "Technical Silk",
+    id: 1,
+    price: "$120",
+    type: "Make A Splash",
+    color: ["black", "yellow", "blue"],
+  },
+];
