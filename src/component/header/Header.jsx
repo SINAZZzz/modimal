@@ -6,6 +6,7 @@ import Grid from "@mui/material/Grid";
 import useWindowSize from "../../Util/Utility";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import Button from "@mui/material/Button";
 
 // icons
 import SearchIcon from "@mui/icons-material/Search";
@@ -15,6 +16,7 @@ import ShoppingBagOutlinedIcon from "@mui/icons-material/ShoppingBagOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import IconButton from "@mui/material/IconButton";
+import Backdrop from "@mui/material/Backdrop";
 
 // logo
 import { logo } from "../../assets/images";
@@ -44,7 +46,19 @@ const navItems = [
 function Header() {
   const { width } = useWindowSize();
   const [anchorEl, setAnchorEl] = useState(null);
+  const [backdrop, setBackdrop] = useState(false);
+  const [showCategory, setShowCategory] = useState(null);
   const open = Boolean(anchorEl);
+  const openCategory = Boolean(showCategory);
+
+  // const  handleCategoryShow = (event) => {
+  //   setShowCategory(event.currentTarget);
+  // };
+
+  const handleCategoryHide = () => {
+    setShowCategory(null);
+  };
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -128,7 +142,15 @@ function Header() {
                 p={1}
               >
                 {navItems.map((item, index) => (
-                  <Typography
+                  <Button
+                    aria-label="category"
+                    id="menu-button"
+                    aria-controls={open ? "category-menu" : undefined}
+                    aria-expanded={open ? "true" : undefined}
+                    aria-haspopup="true"
+                    onClick={(event) => {
+                      setShowCategory(event.currentTarget), setBackdrop(true);
+                    }}
                     key={index}
                     sx={{
                       color: "#000",
@@ -137,8 +159,29 @@ function Header() {
                     }}
                   >
                     {item}
-                  </Typography>
+                  </Button>
                 ))}
+                <Menu
+                  id="category-menu"
+                  MenuListProps={{
+                    "aria-labelledby": "menu-button",
+                  }}
+                  anchorEl={showCategory}
+                  open={openCategory}
+                  onClose={handleCategoryHide}
+                  PaperProps={{
+                    style: {
+                      width: "100%",
+                      borderRadius: "5px",
+                    },
+                  }}
+                >
+                  <MenuItem>
+                    <Backdrop open={backdrop}>
+                      <Box>a</Box>
+                    </Backdrop>
+                  </MenuItem>
+                </Menu>
               </Box>
             </Grid>
             <Grid item md={3}>
